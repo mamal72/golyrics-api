@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/mamal72/golyrics.svg?branch=master)](https://travis-ci.org/mamal72/golyrics)
-[![codecov](https://codecov.io/gh/mamal72/golyrics/branch/master/graph/badge.svg)](https://codecov.io/gh/mamal72/golyrics)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mamal72/golyrics)](https://goreportcard.com/report/github.com/mamal72/golyrics)
+[![Coverage Status](https://coveralls.io/repos/github/mamal72/golyrics/badge.svg?branch=master)](https://coveralls.io/github/mamal72/golyrics?branch=master)
 [![GoDoc](https://godoc.org/github.com/mamal72/golyrics?status.svg)](https://godoc.org/github.com/mamal72/golyrics)
+[![license](https://img.shields.io/github/license/mamal72/golyrics.svg)](https://github.com/mamal72/golyrics/blob/master/LICENSE)
 
 # golyrics
 
@@ -22,24 +24,26 @@ package main
 import "github.com/mamal72/golyrics"
 
 func main() {
-    // Get lyrics suggestions by searching
-    suggestions, err := golyrics.SearchLyrics("Blackfield Some Day") // []string, error
+    // Get track suggestions by searching
+    suggestions, err := golyrics.SearchTrack("Blackfield Some Day") // []Track, error
     // OR
-    suggestions, err := golyrics.SearchLyricsByArtistAndName("Blackfield", "Some Day") // []string, error
+    suggestions, err := golyrics.SearchTrackByArtistAndName("Blackfield", "Some Day") // []Track, error
 
-    // Now fetch the lyrics
-    if len(suggestions) == 0 {
+    // Let's check results
+    if err != nil || len(suggestions) == 0 {
         // No lyrics found for this track :(
         // Try some other keywords or show some error to user
     }
-    lyrics, err := golyrics.GetLyrics(suggestions[0]) // string, error
 
+    // Assign first result to the track
+    track := suggestions[0] // Track
 
-    // You can also search and fetch the lyrics with only one call
-    // It'll use the first search result for fetching lyrics 
-    lyrics, err := golyrics.SearchAndGetLyrics("Blackfield Some Day") // string, error
-    // OR
-    lyrics, err := golyrics.SearchAndGetLyricsByArtistAndName("Blackfield", "Some Day") // string, error
+    // Now fetch the lyrics and set it back on the track    
+    err := track.FetchLyrics() // error
+    if err != nil {
+        // Error fetching lyrics for the track
+    }
+    fmt.Printf("Lyrics of %s by %s: %s", track.Name, track.Artist, track.Lyrics)
 }
 ```
 

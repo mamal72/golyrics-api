@@ -18,12 +18,23 @@ func getenv(key, fallback string) string {
 }
 
 func searchLyrics(query string, ctx *iris.Context) {
-	lyrics, err := golyrics.SearchAndGetLyrics(query)
+	suggestions, err := golyrics.SearchTrack(query)
 	if err != nil {
 		ctx.EmitError(iris.StatusInternalServerError)
 		return
 	}
-	ctx.JSON(iris.StatusOK, iris.Map{"lyrics": lyrics})
+	if len(suggestions) == 0 {
+		ctx.EmitError(iris.StatusNotFound)
+		return
+	}
+
+	track := suggestions[0]
+	fetchErr := track.FetchLyrics()
+	if err != fetchErr {
+		ctx.EmitError(iris.StatusInternalServerError)
+		return
+	}
+	ctx.JSON(iris.StatusOK, track)
 }
 
 func searchLyricsByQuery(ctx *iris.Context) {
