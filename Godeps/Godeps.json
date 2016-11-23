@@ -83,8 +83,8 @@
 		},
 		{
 			"ImportPath": "github.com/mamal72/golyrics",
-			"Comment": "v2.0.0",
-			"Rev": "f3131081ee0f1ce5cdc5d54ee18c69100b037c36"
+			"Comment": "v2.0.1",
+			"Rev": "9d6c20794e3c228adc0e713e9799406720ebfe1c"
 		},
 		{
 			"ImportPath": "github.com/microcosm-cc/bluemonday",
