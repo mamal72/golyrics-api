@@ -83,8 +83,8 @@
 		},
 		{
 			"ImportPath": "github.com/mamal72/golyrics",
-			"Comment": "v2.0.1",
-			"Rev": "9d6c20794e3c228adc0e713e9799406720ebfe1c"
+			"Comment": "v2.0.2",
+			"Rev": "61215513c07a8cc4ff0fb83d87082fb31a68908f"
 		},
 		{
 			"ImportPath": "github.com/microcosm-cc/bluemonday",
@@ -276,6 +276,31 @@
 			"ImportPath": "gopkg.in/square/go-jose.v1/json",
 			"Comment": "v1.1.0",
 			"Rev": "aa2e30fdd1fe9dd3394119af66451ae790d50e0d"
+		},
+		{
+			"ImportPath": "github.com/mamal72/golyrics/vendor/github.com/PuerkitoBio/goquery",
+			"Comment": "v2.0.2",
+			"Rev": "61215513c07a8cc4ff0fb83d87082fb31a68908f"
+		},
+		{
+			"ImportPath": "github.com/mamal72/golyrics/vendor/github.com/buger/jsonparser",
+			"Comment": "v2.0.2",
+			"Rev": "61215513c07a8cc4ff0fb83d87082fb31a68908f"
+		},
+		{
+			"ImportPath": "github.com/mamal72/golyrics/vendor/github.com/andybalholm/cascadia",
+			"Comment": "v2.0.2",
+			"Rev": "61215513c07a8cc4ff0fb83d87082fb31a68908f"
+		},
+		{
+			"ImportPath": "github.com/mamal72/golyrics/vendor/golang.org/x/net/html",
+			"Comment": "v2.0.2",
+			"Rev": "61215513c07a8cc4ff0fb83d87082fb31a68908f"
+		},
+		{
+			"ImportPath": "github.com/mamal72/golyrics/vendor/golang.org/x/net/html/atom",
+			"Comment": "v2.0.2",
+			"Rev": "61215513c07a8cc4ff0fb83d87082fb31a68908f"
 		}
 	]
 }
